@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta charset: täpitähed ja erimärgid kuvatakse õigesti -->
+    <meta charset="UTF-8">
+    <!-- viewport: vajalik, et lehte näitaks telefonis õigesti -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostIt – Home</title>
+    <!-- Ühendame ühise CSS-faili -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <header>
+        <!-- <nav> tähistab navigatsiooni. Lingid viivad teistele lehtedele. -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="addPost.html">addPost</a>
+        </nav>
+        <!-- Avatarile vajutades pääseb sisselogimise lehele -->
+        <a class="avatar" href="login.html">
+            <img src="images/tundmatu.jpg" alt="User profile">
+        </a>
+    </header>
+
+    <!-- <main> sisaldab lehe põhisisu -->
+    <main class="layout">
+
+        <!-- <aside> on kõrvalsisu (külgriba) -->
+        <aside></aside>
+
+        <!-- Postituste veerg. Iga postitus on eraldi <article>,
+             sest see on iseseisev sisuüksus. -->
+        <section class="posts">
+
+            <!-- Postitus 1: pildi ja tekstiga -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="images/tundmatu.jpg" alt="Author">
+                    <!-- <time> on semantiline element kuupäeva jaoks -->
+                    <time datetime="2025-10-5">Oct 5, 2025</time>
+                </div>
+                <img class="post-image" src="images/emajõgi.jpg" alt="Tartu linn">
+                <p>Tartu 2026</p>
+                <button class="like" type="button" aria-label="Like">👍</button>
+            </article>
+
+            <!-- Postitus 2: ainult tekst, ilma pildita -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="pictures/tundmatu.jpg" alt="Author">
+                    <time datetime="2022-10-02">Oct 2, 2022</time>
+                </div>
+                <p>Mis kell täna tunnid hakkavad??</p>
+                <button class="like" type="button" aria-label="Like">👍</button>
+            </article>
+
+            <!-- Postitus 3: pildi ja tekstiga -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="Pictures/avatar.svg" alt="Author">
+                    <time datetime="2022-09-28">Sep 28, 2022</time>
+                </div>
+                <img class="post-image" src="Pictures/kohvi.jpg" alt="Tass kohvi">
+                <p>Kohvi enne tunde.</p>
+                <button class="like" type="button" aria-label="Like">👍</button>
+            </article>
+
+            <!-- Postitus 4: ainult tekst -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="Pictures/tundmatu.jpg" alt="Author">
+                    <time datetime="2022-09-20">Sep 20, 2022</time>
+                </div>
+                <p>Kas keegi otsib rühmatöö gruppi?</p>
+                <button class="like" type="button" aria-label="Like">👍</button>
+            </article>
+
+            <!-- Postitus 5: ainult tekst -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="Pictures/tundmatu.jpg" alt="Author">
+                    <time datetime="2026-09-28">Sep 28, 2026</time>
+                </div>
+                <p>Kodutöö tähtaeg on järgmine nädal!</p>
+                <button class="like" type="button" aria-label="Like">👍</button>
+            </article>
+
+        </section>
+
+        <aside></aside>
+    </main>
+
+    <!-- <footer> on lehe jalus -->
+    <footer>
+        <p>Footer</p>
+    </footer>
+
+</body>
+</html>
