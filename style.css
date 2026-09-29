@@ -8,6 +8,8 @@
 body {
     /* browsers give <body> default margin */
     margin: 0;
+    /* everything inside the body must stay 10px away from the edges */
+    padding: 10px;
     /* 100vh = viewport height - at least the the full height of browser window */
     min-height: 100vh;
     background-color: white;
@@ -53,16 +55,21 @@ nav > a:hover {
 .layout {
     /* <aside> and .posts become flex items, they're horizontally */
     display: flex;
-    /* centers them on horizontal axis */
-    justify-content: center;
-    /* puts them at the top rather than streching them vertically */
+    /* pushes the children apart horizontally*/
+    justify-content: space-between;
+    /* puts them at the top rather than stretching them vertically */
     align-items: flex-start;
+    /* flex items will always have a 15px gap between them */
+    gap: 15px;
+    /* size between header and layout class */
+    margin-top: 15px;
 }
 
 /* Child-selector */
 .layout > aside {
     background-color: darkgray;
     width: 160px;
+    max-width: 15%;
     /* makes <aside> height stretch to the height determined by .layout basically*/
     align-self: stretch;
     /* rounds corners */
@@ -70,8 +77,11 @@ nav > a:hover {
 }
 
 .posts {
-    /* it'll use the available width, but not more than 640px */
-    width: 100%;
+    /* 0 -> don't grow beyond intended size
+     * 1 -> allowed to shrink
+     * 640px preferred starting size
+     */
+    flex: 0 1 640px;
     max-width: 640px;
 }
 
