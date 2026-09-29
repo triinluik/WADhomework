@@ -10,7 +10,7 @@ body {
     margin: 0;
     /* 100vh = viewport height - at least the the full height of browser window */
     min-height: 100vh;
-    background-color: lightgray;
+    background-color: white;
     font-family: sans-serif;
 }
 
@@ -20,10 +20,10 @@ header {
     /* it's children are <nav> and .avatar so they're now pushed apart */
     justify-content: space-between;
     align-items: center;
-    background-color: gray;
+    background-color: darkgray;
     /* padding: top + bottom in px and left + right in pixels */
     padding: 10px 20px;
-    /* gievs rounded corners */
+    /* gives rounded corners */
     border-radius: 10px;
 }
 
@@ -48,4 +48,39 @@ nav > a:hover {
     object-fit: cover;
     /* square image is now circular*/
     border-radius: 50%;
+}
+
+.layout {
+    /* <aside> and .posts become flex items, they're horizontally */
+    display: flex;
+    /* centers them on horizontal axis */
+    justify-content: center;
+    /* puts them at the top rather than streching them vertically */
+    align-items: flex-start;
+}
+
+/* Child-selector */
+.layout > aside {
+    background-color: darkgray;
+    width: 160px;
+    /* makes <aside> height stretch to the height determined by .layout basically*/
+    align-self: stretch;
+    /* rounds corners */
+    border-radius: 10px;
+}
+
+.posts {
+    /* it'll use the available width, but not more than 640px */
+    width: 100%;
+    max-width: 640px;
+}
+
+.post {
+    background-color: lightgray;
+    /* creates space inside the post area between contents and edges*/
+    padding: 15px;
+    /* separates the posts of each other */
+    margin-bottom: 15px;
+    /* rounds the corners */
+    border-radius: 10px;
 }
