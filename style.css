@@ -1,0 +1,51 @@
+/* Universal selector
+* border-box includes the padding and borders in an elem. defined w and h
+*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* browsers give <body> default margin */
+    margin: 0;
+    /* 100vh = viewport height - at least the the full height of browser window */
+    min-height: 100vh;
+    background-color: lightgray;
+    font-family: sans-serif;
+}
+
+header {
+    /* header is now a flex container -> nav and avatar are on opposite sides */
+    display: flex;
+    /* it's children are <nav> and .avatar so they're now pushed apart */
+    justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+    /* padding: top + bottom in px and left + right in pixels */
+    padding: 10px 20px;
+    /* gievs rounded corners */
+    border-radius: 10px;
+}
+
+/* > is a child selector and it selects links that are direct children of nav */
+nav > a {
+    display: inline-block;
+    padding: 10px 15px;
+    color: black;
+    text-decoration: none;
+}
+
+/* Pseudo-class: changes the nav link colour on hover */
+nav > a:hover {
+    background-color: darkgray;
+}
+
+/* Descendant selector - selects an image inside the avatar link */
+.avatar img {
+    width: 40px;
+    height: 40px;
+    /* fills the 40x40 area without squashing its proportions, excess gets cropped */
+    object-fit: cover;
+    /* square image is now circular*/
+    border-radius: 50%;
+}
