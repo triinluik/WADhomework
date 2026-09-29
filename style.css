@@ -1,3 +1,4 @@
+/* ------------GENERAL---------------*/
 /* Universal selector
 * border-box includes the padding and borders in an elem. defined w and h
 */
@@ -16,6 +17,7 @@ body {
     font-family: sans-serif;
 }
 
+/* ------------HEADER AND NAVIGATION---------------*/
 header {
     /* header is now a flex container -> nav and avatar are on opposite sides */
     display: flex;
@@ -52,6 +54,8 @@ nav > a:hover {
     /* square image is now circular*/
     border-radius: 50%;
 }
+
+/* ------------HOME PAGE---------------*/
 
 .layout {
     /* <aside> and .posts become flex items, they're horizontally */
@@ -129,7 +133,7 @@ nav > a:hover {
 }
 
 /* General sibling selector -> selects like buttons that come after the post header */
-.post-header ~.like {
+.post-header ~ .like {
     /* 6px is top/bottom, 10px is left/right */
     padding: 6px 10px;
     background-color: white;
@@ -139,9 +143,118 @@ nav > a:hover {
     cursor: pointer;
 }
 
-.post-header ~.like:hover {
+.post-header ~ .like:hover {
     background-color: darkgray;
 }
+
+/* ------------ADD POST---------------*/
+
+/* centers the form box horizontally */
+.center {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+/* shared styling for addPost and Login form boxes */
+.form-box {
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-row {
+    display: flex;
+    /* aligns the children (label and text in this case) to the top of the row */
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+/* makes the the textarea not resizeable but is 250px*/
+.form-row textarea {
+    width: 250px;
+    height: 80px;
+    resize: none;
+}
+
+/* label is 55px and cannot go narrower because flex-shrink */
+.form-row label {
+    width: 55px;
+    flex-shrink: 0;
+    text-align: right;
+    margin-right: 10px;
+}
+
+/* selects the button that is a later sibling of .form-row */
+.form-row ~ button {
+    margin-left: 55px;
+    padding: 6px 10px;
+    cursor: pointer;
+    background-color: midnightblue;
+    color: white;
+    border: none;
+}
+
+.form-row input[type="file"]::file-selector-button {
+    background-color: gray;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+/* ------------LOGIN FORM---------------*/
+
+.form-box > h1,
+.form-box > p,
+.form-box > .link {
+    text-align: center;
+}
+
+/* checks if login form contains an email input, if yes then */
+/* Also pseudo-class */
+.form-box:has(input[type="email"]) {
+    text-align: center;
+}
+
+.form-box:has(input[type="email"]) h1 {
+    font-size: 20px;
+}
+
+.form-box form:has(input[type="email"]) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-box form:has(input[type="email"]) button {
+    padding: 6px 10px;
+    background-color: midnightblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* controls the spacing around the login instruction */
+.form-box:has(input[type="email"]) p {
+    margin: 8px 0;
+}
+
+/* styles links int eh login box without the default underline */
+.form-box .link {
+    color: deepskyblue;
+    text-decoration: none;
+}
+
+/* Adjacent sibling selector: selects the link immediately after the login form */
+.form-box form + .link {
+    display: block;
+    margin-top: 8px;
+}
+
+
+/* ------------FOOTER---------------*/
 
 footer {
     margin-top: 15px;
@@ -155,4 +268,20 @@ footer {
 footer > p {
     /* and removes the browser's default paragraph margins*/
     margin: 0;
+}
+
+/* ------------RESPONSIVE---------------*/
+
+/* hides the sidebars (<aside> thingies) on smaller screens
+ * and lets posts use available width
+ */
+@media (max-width: 600px) {
+    /* says begone */
+    .layout > aside {
+        display: none;
+    }
+    /* says take center stage */
+    .posts {
+        flex: 1;
+    }
 }
