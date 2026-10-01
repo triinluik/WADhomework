@@ -44,6 +44,11 @@ nav > a:hover {
     background-color: darkgray;
 }
 
+/* Adjacent sibling selector: creates a line between Home and Add Post */
+nav a + a {
+    border-left: 2px solid black;
+}
+
 /* Descendant selector - selects an image inside the avatar.
  *This is only the profile avatar */
 .avatar img {
