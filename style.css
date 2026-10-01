@@ -1,3 +1,4 @@
+/* ------------GENERAL---------------*/
 /* Universal selector
 * border-box includes the padding and borders in an elem. defined w and h
 */
@@ -8,22 +9,25 @@
 body {
     /* browsers give <body> default margin */
     margin: 0;
+    /* everything inside the body must stay 10px away from the edges */
+    padding: 10px;
     /* 100vh = viewport height - at least the the full height of browser window */
     min-height: 100vh;
-    background-color: lightgray;
+    background-color: white;
     font-family: sans-serif;
 }
 
+/* ------------HEADER AND NAVIGATION---------------*/
 header {
     /* header is now a flex container -> nav and avatar are on opposite sides */
     display: flex;
     /* it's children are <nav> and .avatar so they're now pushed apart */
     justify-content: space-between;
     align-items: center;
-    background-color: gray;
+    background-color: darkgray;
     /* padding: top + bottom in px and left + right in pixels */
     padding: 10px 20px;
-    /* gievs rounded corners */
+    /* gives rounded corners */
     border-radius: 10px;
 }
 
@@ -40,7 +44,8 @@ nav > a:hover {
     background-color: darkgray;
 }
 
-/* Descendant selector - selects an image inside the avatar link */
+/* Descendant selector - selects an image inside the avatar.
+ *This is only the profile avatar */
 .avatar img {
     width: 40px;
     height: 40px;
@@ -48,4 +53,235 @@ nav > a:hover {
     object-fit: cover;
     /* square image is now circular*/
     border-radius: 50%;
+}
+
+/* ------------HOME PAGE---------------*/
+
+.layout {
+    /* <aside> and .posts become flex items, they're horizontally */
+    display: flex;
+    /* pushes the children apart horizontally*/
+    justify-content: space-between;
+    /* puts them at the top rather than stretching them vertically */
+    align-items: flex-start;
+    /* flex items will always have a 15px gap between them */
+    gap: 15px;
+    /* size between header and layout class */
+    margin-top: 15px;
+}
+
+/* Child-selector */
+.layout > aside {
+    background-color: darkgray;
+    width: 160px;
+    max-width: 15%;
+    /* makes <aside> height stretch to the height determined by .layout basically*/
+    align-self: stretch;
+    /* rounds corners */
+    border-radius: 10px;
+}
+
+.posts {
+    /* 0 -> don't grow beyond intended size
+     * 1 -> allowed to shrink
+     * 640px preferred starting size
+     */
+    flex: 0 1 640px;
+    max-width: 640px;
+}
+
+.post {
+    background-color: lightgray;
+    /* creates space inside the post area between contents and edges*/
+    padding: 15px;
+    /* separates the posts of each other */
+    margin-bottom: 15px;
+    /* rounds the corners */
+    border-radius: 10px;
+}
+
+/* keep pictures within the post while preserving their aspect ratio */
+.post-image {
+    display: block;
+    max-width: 100%;
+    max-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+.post-header time {
+    margin-left: auto;
+}
+
+/* the post author's avatar */
+.post-header img {
+    width: 30px;
+    height: 30px;
+    /* scales the image proportionally until required px times px -> if sticks outside, crop it */
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Adjacent sibling selector -> selects an image immediately after the post-header */
+.post-header + .post-image {
+    margin-top: 10px;
+}
+
+/* General sibling selector -> selects like buttons that come after the post header */
+.post-header ~ .like {
+    /* 6px is top/bottom, 10px is left/right */
+    padding: 6px 10px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    /* shows the button is clickable on hover */
+    cursor: pointer;
+}
+
+.post-header ~ .like:hover {
+    background-color: darkgray;
+}
+
+/* ------------ADD POST---------------*/
+
+/* centers the form box horizontally */
+.center {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+/* shared styling for addPost and Login form boxes */
+.form-box {
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-row {
+    display: flex;
+    /* aligns the children (label and text in this case) to the top of the row */
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+/* makes the the textarea not resizeable but is 250px*/
+.form-row textarea {
+    width: 250px;
+    height: 80px;
+    resize: none;
+}
+
+/* label is 55px and cannot go narrower because flex-shrink */
+.form-row label {
+    width: 55px;
+    flex-shrink: 0;
+    text-align: right;
+    margin-right: 10px;
+}
+
+/* selects the button that is a later sibling of .form-row */
+.form-row ~ button {
+    margin-left: 55px;
+    padding: 6px 10px;
+    cursor: pointer;
+    background-color: midnightblue;
+    color: white;
+    border: none;
+}
+
+.form-row input[type="file"]::file-selector-button {
+    background-color: gray;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+/* ------------LOGIN FORM---------------*/
+
+.form-box > h1,
+.form-box > p,
+.form-box > .link {
+    text-align: center;
+}
+
+/* checks if login form contains an email input, if yes then */
+/* Also pseudo-class */
+.form-box:has(input[type="email"]) {
+    text-align: center;
+}
+
+.form-box:has(input[type="email"]) h1 {
+    font-size: 20px;
+}
+
+.form-box form:has(input[type="email"]) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-box form:has(input[type="email"]) button {
+    padding: 6px 10px;
+    background-color: midnightblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* controls the spacing around the login instruction */
+.form-box:has(input[type="email"]) p {
+    margin: 8px 0;
+}
+
+/* styles links int eh login box without the default underline */
+.form-box .link {
+    color: deepskyblue;
+    text-decoration: none;
+}
+
+/* Adjacent sibling selector: selects the link immediately after the login form */
+.form-box form + .link {
+    display: block;
+    margin-top: 8px;
+}
+
+
+/* ------------FOOTER---------------*/
+
+footer {
+    margin-top: 15px;
+    background-color: darkgray;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Child selector again -> selects the paragraph */
+footer > p {
+    /* and removes the browser's default paragraph margins*/
+    margin: 0;
+}
+
+/* ------------RESPONSIVE---------------*/
+
+/* hides the sidebars (<aside> thingies) on smaller screens
+ * and lets posts use available width
+ */
+@media (max-width: 600px) {
+    /* says begone */
+    .layout > aside {
+        display: none;
+    }
+    /* says take center stage */
+    .posts {
+        flex: 1;
+    }
 }
