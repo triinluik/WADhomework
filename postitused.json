@@ -1,0 +1,92 @@
+[
+    {
+        "id": 10,
+        "author": "Uku",
+        "authorAvatar": "images/tundmatu.jpg",
+        "createTime": "2026-12-27",
+        "text": "Tund on täna ruumis 2019.",
+        "image": null,
+        "imageAlt": null
+    },
+    {
+        "id": 9,
+        "author": "Juuli",
+        "authorAvatar": "images/tundmatu.jpg",
+        "createTime": "2026-10-20",
+        "text": "Teine kohv sel päeval.",
+        "image": "images/kohvi.jpg",
+        "imageAlt": "Kohvitass laual"
+    },
+    {
+        "id": 8,
+        "author": "Katriin",
+        "authorAvatar": "images/tundmatu.jpg",
+        "createTime": "2025-12-12",
+        "text": "Kas keegi oskab seda kodutööd teha?",
+        "image": null,
+        "imageAlt": null
+    },
+    {
+        "id": 7,
+        "author": "Teele",
+        "authorAvatar": "images/tundmatu.jpg",
+        "createTime": "2025-11-06",
+        "text": "Emajõe ääres on sügisel ilus jalutada.",
+        "image": "images/emajogi.jpg",
+        "imageAlt": "Emajõgi Tartus"
+    },
+    {
+        "id": 6,
+        "author": "Kristjan",
+        "authorAvatar": "images/tundmatu.jpg",
+        "createTime": "2024-08-01",
+        "text": "Tund jääb täna ära",
+        "image": null,
+        "imageAlt": null
+    },
+    {
+        "id": 5,
+        "author": "Kadri",
+        "authorAvatar": "images/tundmatu.jpg",
+        "createTime": "2024-06-28",
+        "text": "Kodutöö tähtaeg on järgmine nädal!",
+        "image": null,
+        "imageAlt": null
+    },
+    {
+        "id": 4,
+        "author": "Oskar",
+        "authorAvatar": "images/tundmatu.jpg",
+        "createTime": "2023-09-05",
+        "text": "Mis te täna õhtul teete",
+        "image": null,
+        "imageAlt": null
+    },
+    {
+        "id": 3,
+        "author": "Maria",
+        "authorAvatar": "images/tundmatu.jpg",
+        "createTime": "2023-01-02",
+        "text": "Kohvi enne tunde.",
+        "image": "images/kohvi.jpg",
+        "imageAlt": "Tass kohvi"
+    },
+    {
+        "id": 2,
+        "author": "Maris",
+        "authorAvatar": "images/tundmatu.jpg",
+        "createTime": "2022-04-05",
+        "text": "Kas täna on kontrolltöö?",
+        "image": null,
+        "imageAlt": null
+    },
+    {
+        "id": 1,
+        "author": "Anete",
+        "authorAvatar": "images/tundmatu.jpg",
+        "createTime": "2022-02-02",
+        "text": "Tartu 2026",
+        "image": "images/emajogi.jpg",
+        "imageAlt": "Tartu linn"
+    }
+]
