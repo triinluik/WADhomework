@@ -1,6 +1,9 @@
-//Sends an HTTP GET request to the URL (the online JSON endpoint)
+// Task 4: Fetch JSON from the publicly accessible online endpoint
+// fetch("https://triinluik.github.io/WADhomework/postitused.json")
+
+// Task 5: Fetch JSON from the local file instead
 // fetch() returns a Promise because the request is asynchronous
-fetch("https://triinluik.github.io/WADhomework/postitused.json")
+fetch("./postitused.json")
     //Reads the response body and parses the JSON into JS objects
     .then(response => response.json())
     // Gives the resulting array as post objects
