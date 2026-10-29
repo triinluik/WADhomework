@@ -294,3 +294,25 @@ footer > p {
         flex: 1;
     }
 }
+
+/* ------------KASUTAJA MENÜÜ---------------*/
+
+/* menüü paigutatakse avatari suhtes */
+.avatar {
+    position: relative;
+    cursor: pointer;
+}
+
+/* menüü avatari all paremas servas */
+.dropdown {
+    position: absolute;
+    right: 0;
+    background-color: lightgray;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+/* JavaScript lisab või eemaldab selle klassi */
+.hidden {
+    display: none;
+}
