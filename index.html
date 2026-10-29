@@ -18,10 +18,15 @@
             <a href="index.html">Home</a>
             <a href="addPost.html">addPost</a>
         </nav>
-        <!-- Avatarile vajutades pääseb sisselogimise lehele -->
-        <a class="avatar" href="login.html">
-            <img src="images/tundmatu.jpg" alt="User profile">
-        </a>
+        <!-- Avatarile vajutades avaneb kasutaja menüü -->
+        <div class="avatar">
+            <img id="avatar-btn" src="images/tundmatu.jpg" alt="User profile">
+            <div id="user-menu" class="dropdown hidden">
+                <p>Liisi Valdvee</p>
+                <p>liisi.valdvee@ut.ee</p>
+                <a href="login.html">logout</a>
+            </div>
+        </div>
     </header>
 
     <!-- <main> sisaldab lehe põhisisu -->
