@@ -1,5 +1,5 @@
 // Task 4: Fetch JSON from the publicly accessible online endpoint
-// fetch("https://triinluik.github.io/WADhomework/postitused.json")
+// fetch("https://api.npoint.io/8ea08d0a0e19131105fa")
 
 // Task 5: Fetch JSON from the local file instead
 // fetch() returns a Promise because the request is asynchronous
@@ -82,3 +82,12 @@ fetch("./postitused.json")
     })
     // Catches an error if request fails
     .catch(error => console.log("Error fetching posts:", error));
+
+// Task 7: clicking the profile photo opens and closes the user menu
+const avatarButton = document.getElementById("avatar-btn");
+const userMenu = document.getElementById("user-menu");
+
+avatarButton.addEventListener("click", () => {
+    // toggle removes the class if it exists and adds it if it doesn't
+    userMenu.classList.toggle("hidden");
+});
