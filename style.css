@@ -30,6 +30,10 @@ header {
     /* gives rounded corners */
     border-radius: 10px;
 }
+nav {
+    display: flex;
+    align-self: center;
+}
 
 /* > is a child selector and it selects links that are direct children of nav */
 nav > a {
@@ -41,7 +45,7 @@ nav > a {
 
 /* Pseudo-class: changes the nav link colour on hover */
 nav > a:hover {
-    background-color: darkgray;
+    background-color: gray;
 }
 
 /* Adjacent sibling selector: creates a line between Home and Add Post */
