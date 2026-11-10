@@ -1,30 +1,19 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <!-- Header ja footer on mõlemal lehel, vahele tuleb aktiivne leht -->
+  <HeaderComponent />
+  <router-view />
+  <FooterComponent />
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import HeaderComponent from './components/HeaderComponent.vue'
+import FooterComponent from './components/FooterComponent.vue'
 
-nav {
-  padding: 30px;
+export default {
+  name: 'App',
+  components: { HeaderComponent, FooterComponent }
 }
+</script>
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<!-- Ühine stiilifail kogu rakendusele -->
+<style src="./assets/style.css"></style>
