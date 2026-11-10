@@ -1,0 +1,17 @@
+# Installed npm dependencies
+node_modules/
+
+# WebStorm configuration
+.idea/
+
+# Generated production build
+dist/
+
+# Local environment files
+.env.local
+.env.*.local
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
