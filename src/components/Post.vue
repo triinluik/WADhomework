@@ -14,6 +14,12 @@ export default {
     formatDate(date) {
       return new Date(date + "T00:00:00")
           .toLocaleDateString("en-US", {month: "short", day: "numeric", year: "numeric"});
+    },
+    // Handles a like button click for an individual post.
+    // Passes postId to the Vuex incrementLikes mutation,
+    // which in turn updates the like counter in the central store.
+    likePost(postId) {
+      this.$store.commit("incrementLikes", postId);
     }
   }
 }
@@ -33,6 +39,10 @@ export default {
   <img v-if="post.image" :src="post.image" class="post-image" :alt="post.imageAlt"/>
   <!-- Display post text -->
   <p> {{ post.text }}</p>
+  <!-- Like button displays the current number of likes -->
+  <button class="like" type="button" @click="likePost(post.id)">
+    👍 {{ post.likes }}
+  </button>
 </article>
 </template>
 
