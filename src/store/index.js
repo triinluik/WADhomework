@@ -38,7 +38,7 @@ export default createStore({
         // Essentially the same as in HW2 -> response.json return a Promise
         // So it fetches posts from JSON and commits the result to the Vuex store
         fetchPosts({commit}) {
-            fetch('/postitused.json')
+            fetch(process.env.BASE_URL + '/postitused.json')
                 .then(response => response.json())
                 .then(payload => {
                     commit('setPostsList', payload)
