@@ -1,12 +1,19 @@
 <template>
-  <div class="home">
-    <Post v-for="post in postsList"
-          :key="post.id" :post="post"></Post>
-    <!-- Resets the like counters -->
-    <button type="button" @click="resetLikes">
-      Reset likes
-    </button>
-  </div>
+  <!-- Paigutus joonise 3 järgi: külgveerg, postitused, külgveerg -->
+  <main class="layout">
+    <aside></aside>
+
+    <section class="posts">
+      <Post v-for="post in postsList"
+            :key="post.id" :post="post"></Post>
+      <!-- Resets the like counters -->
+      <button type="button" class="reset-button" @click="resetLikes">
+        Reset likes
+      </button>
+    </section>
+
+    <aside></aside>
+  </main>
 </template>
 
 <script>

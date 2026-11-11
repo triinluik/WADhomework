@@ -1,0 +1,298 @@
+/* ------------ÜLDINE---------------*/
+
+/* * valib kõik elemendid.
+ * border-box: laius ja kõrgus sisaldavad ka padding'ut ja äärist,
+ * nii on elementide suurust lihtsam arvutada */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* brauser annab body'le vaikimisi veerise, see eemaldatakse */
+    margin: 0;
+    /* kogu sisu on lehe servadest 10px kaugusel */
+    padding: 10px;
+    /* leht on vähemalt sama kõrge kui brauseri aken */
+    min-height: 100vh;
+    background-color: white;
+    font-family: sans-serif;
+}
+
+/* ------------HEADER JA NAVIGATSIOON---------------*/
+
+header {
+    /* flex paneb nav'i ja avatari kõrvuti,
+     * space-between lükkab need vastasservadesse */
+    display: flex;
+    justify-content: space-between;
+    /* elemendid on vertikaalselt keskel */
+    align-items: center;
+    background-color: darkgray;
+    /* 10px üleval ja all, 20px vasakul ja paremal */
+    padding: 10px 20px;
+    /* ümarad nurgad */
+    border-radius: 10px;
+}
+
+/* lingid on nav'i sees kõrvuti */
+nav {
+    display: flex;
+    align-self: center;
+}
+
+/* > valib ainult need lingid, mis on otse nav'i sees */
+nav > a {
+    display: inline-block;
+    padding: 10px 15px;
+    color: black;
+    /* eemaldab lingi allajoone */
+    text-decoration: none;
+}
+
+/* :hover - lingi taust muutub, kui hiir on selle kohal */
+nav > a:hover {
+    background-color: gray;
+}
+
+/* a + a valib lingi, mis tuleb kohe teise lingi järel,
+ * nii tekib joon Home ja Signup vahele */
+nav a + a {
+    border-left: 2px solid black;
+}
+
+/* Vue router lisab selle klassi avatud lehe lingile,
+ * nii on näha, millisel lehel kasutaja on */
+nav > a.router-link-exact-active {
+    font-weight: bold;
+}
+
+/* avatar on menüü paigutamise lähtekoht (position: relative) */
+.avatar {
+    position: relative;
+    /* hiire kursor näitab, et pildile saab klõpsata */
+    cursor: pointer;
+}
+
+/* profiilipilt headeris */
+.avatar img {
+    width: 40px;
+    height: 40px;
+    /* pilt täidab ruudu ilma venitamata, üleliigne lõigatakse ära */
+    object-fit: cover;
+    /* ruudust saab ring */
+    border-radius: 50%;
+}
+
+/* kasutaja menüü avatari all */
+.dropdown {
+    /* paigutatakse .avatar suhtes, mitte lehe voos */
+    position: absolute;
+    /* menüü parem serv on avatari parema servaga kohakuti */
+    right: 0;
+    background-color: lightgray;
+    padding: 10px 15px;
+    border-radius: 10px;
+    /* tekst ei murdu mitmele reale */
+    white-space: nowrap;
+    /* menüü on teiste elementide peal */
+    z-index: 10;
+}
+
+/* ------------AVALEHT---------------*/
+
+/* kolm veergu kõrvuti: külgveerg, postitused, külgveerg */
+.layout {
+    display: flex;
+    justify-content: space-between;
+    /* elemendid algavad ülevalt, mitte ei veni */
+    align-items: flex-start;
+    /* veergude vahel on alati 15px */
+    gap: 15px;
+    /* vahe headeri ja sisu vahel */
+    margin-top: 15px;
+}
+
+/* hallid külgveerud */
+.layout > aside {
+    background-color: darkgray;
+    width: 160px;
+    /* väiksemal ekraanil ei võta üle 15% laiusest */
+    max-width: 15%;
+    /* venib postituste veeruga sama kõrgeks */
+    align-self: stretch;
+    border-radius: 10px;
+}
+
+/* postituste veerg keskel */
+.posts {
+    /* 0 = ei kasva üle, 1 = võib kahaneda, 640px = eelistatud laius */
+    flex: 0 1 640px;
+    max-width: 640px;
+}
+
+/* üks postitus */
+.post {
+    background-color: lightgray;
+    /* vahe sisu ja kasti serva vahel */
+    padding: 15px;
+    /* vahe postituste vahel */
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+/* postituse pilt */
+.post-image {
+    display: block;
+    /* pilt ei lähe postitusest laiemaks */
+    max-width: 100%;
+    max-height: 400px;
+    /* 10px üleval, auto teeb pildi keskele */
+    margin: 10px auto 0;
+}
+
+/* postituse ülemine rida: autori pilt ja kuupäev */
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+/* margin-left: auto lükkab kuupäeva paremasse serva */
+.post-header time {
+    margin-left: auto;
+}
+
+/* autori väike ümmargune pilt */
+.post-header img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* like-nupp */
+.like {
+    padding: 6px 10px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* like-nupp muutub hiirega üle minnes tumedamaks */
+.like:hover {
+    background-color: darkgray;
+}
+
+/* Reset likes nupp postituste all keskel */
+.reset-button {
+    /* block + margin auto paneb nupu keskele */
+    display: block;
+    margin: 0 auto;
+    padding: 6px 20px;
+    cursor: pointer;
+    background-color: midnightblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* ------------SIGNUP---------------*/
+
+/* paneb vormikasti lehe keskele */
+.center {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+/* hall vormikast */
+.form-box {
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 10px;
+    /* kasutab kogu laiust, aga mitte üle 400px */
+    width: 100%;
+    max-width: 400px;
+}
+
+/* üks vormi rida: silt ja väli samal real */
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* sildid on ühelaiused, nii et väljad on kohakuti */
+.form-row label {
+    width: 70px;
+    /* silt ei lähe kitsamaks */
+    flex-shrink: 0;
+    text-align: right;
+    margin-right: 10px;
+}
+
+/* väli täidab ülejäänud rea */
+.form-row input {
+    flex: 1;
+    padding: 6px 8px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+/* Signup nupp vormi keskel */
+.signup-form button {
+    display: block;
+    margin: 0 auto;
+    padding: 6px 20px;
+    cursor: pointer;
+    background-color: midnightblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* parooli veateated on punased */
+.errors {
+    color: darkred;
+    font-size: 14px;
+    margin: 0 0 15px;
+    /* ruum loendi täppidele */
+    padding-left: 20px;
+}
+
+/* eduteade on roheline ja keskel */
+.success {
+    color: darkgreen;
+    text-align: center;
+    margin: 0 0 15px;
+}
+
+/* ------------FOOTER---------------*/
+
+footer {
+    /* vahe sisu ja footeri vahel */
+    margin-top: 15px;
+    background-color: darkgray;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* eemaldab lõikude vaikimisi veerised, et read oleksid koos */
+footer > p {
+    margin: 0;
+}
+
+/* ------------VÄIKESED EKRAANID---------------*/
+
+/* kui ekraan on kitsam kui 600px (nt telefon),
+ * peidetakse külgveerud ja postitused kasutavad kogu laiust */
+@media (max-width: 600px) {
+    .layout > aside {
+        display: none;
+    }
+
+    .posts {
+        flex: 1;
+    }
+}
